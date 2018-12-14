@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Nasa Mars Rover</string>
+    <string name="rover">Rover</string>
+    <string name="rover_name">Name:</string>
+    <string name="landing_day">Landing Day:</string>
+    <string name="launch_day">Launch Day:</string>
+    <string name="status">Status:</string>
+    <string name="total_photos">Total Photos:</string>
+    <string name="camera_title">Camera</string>
+    <string name="camera_name">Name:</string>
+    <string name="camera_full_name">Full Name:</string>
+</resources>

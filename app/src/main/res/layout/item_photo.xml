@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.celaloglu.zafer.nasa.api.response.Photo" />
+
+        <variable
+            name="vm"
+            type="com.celaloglu.zafer.nasa.ui.photos.PhotosViewModel" />
+
+    </data>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        android:adjustViewBounds="true"
+        android:onClick="@{() -> vm.onPhotoClick(item)}"
+        android:background="?selectableItemBackground"
+        android:scaleType="centerCrop"
+        app:imgSrc="@{item.imgSrc}"
+        tools:src="@tools:sample/avatars" />
+
+</layout>

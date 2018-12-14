@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion app.compileSdk
+
+    defaultConfig {
+        applicationId app.id
+        minSdkVersion app.minSdk
+        targetSdkVersion app.targetSdk
+        versionCode app.versionCode
+        versionName app.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", '"https://api.nasa.gov/mars-photos/api/v1/"'
+        buildConfigField "String", "API_KEY", '"XgnHWHCccm2tc2pqxmFtehD85oLyw7h4tVvh9oHh"'
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    implementation libraries.kotlinVersion
+
+    //Support libraries
+    implementation libraries.appCompatV7
+    implementation libraries.recyclerView
+    implementation libraries.cardView
+    implementation libraries.constraintLayout
+
+    //retrofit
+    api libraries.retrofit
+    api libraries.retrofitGsonConverter
+    api libraries.okhttp
+
+    //Dagger
+    implementation libraries.dagger
+    implementation libraries.daggerAndroid
+    kapt libraries.daggerCompiler
+    kapt libraries.daggerAnnotationProcessor
+
+    //Rx
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid2
+    implementation libraries.retrofitRxAdapter
+
+    //gson
+    implementation libraries.gson
+
+    //glide
+    implementation libraries.glide
+
+    //test
+    testImplementation testDependencies.jUnit
+    testImplementation testDependencies.mockito
+}
